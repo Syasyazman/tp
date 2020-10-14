@@ -23,6 +23,7 @@ public class ModelManager implements Model {
     private final AddressBook addressBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Client> filteredClients;
+    private final FilteredList<Order> filteredOrders;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
@@ -36,6 +37,7 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.userPrefs = new UserPrefs(userPrefs);
         filteredClients = new FilteredList<>(this.addressBook.getPersonList());
+        filteredOrders = new FilteredList<>(this.addressBook.getOrderList());
     }
 
     public ModelManager() {
@@ -124,6 +126,7 @@ public class ModelManager implements Model {
     @Override
     public void deleteOrder(Order target) {
         // not yet implemented
+//        addressBook.removeOrder(target);
     }
 
     @Override
@@ -182,11 +185,13 @@ public class ModelManager implements Model {
     @Override
     public ObservableList<Order> getFilteredOrderList() {
         // not yet implemented
-        return null;
+        return filteredOrders;
     }
 
     @Override
     public void updateFilteredOrderList(Predicate<Order> predicate) {
         // not yet implemented
+        requireNonNull(predicate);
+        filteredOrders.setPredicate(predicate);
     }
 }
