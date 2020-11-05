@@ -55,9 +55,6 @@ public class AddressBookParser {
         case ClientCommand.COMMAND_WORD:
             return new ClientCommandParser().parse(arguments);
 
-        case EditCommand.COMMAND_WORD:
-            return new EditCommandParser().parse(arguments);
-
         case DeleteClientCommand.COMMAND_WORD:
             return new DeleteClientCommandParser().parse(arguments);
 

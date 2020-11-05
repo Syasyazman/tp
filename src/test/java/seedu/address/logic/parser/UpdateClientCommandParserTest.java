@@ -39,7 +39,7 @@ import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.testutil.EditPersonDescriptorBuilder;
 
-public class EditCommandParserTest {
+public class UpdateClientCommandParserTest {
 
     private static final String TAG_EMPTY = " " + PREFIX_TAG;
 
@@ -98,7 +98,7 @@ public class EditCommandParserTest {
 
         // multiple invalid values, but only the first invalid value is captured
         assertParseFailure(parser, "1" + OLD_INVALID_NAME_DESC + OLD_INVALID_EMAIL_DESC + VALID_ADDRESS_AMY
-                        + VALID_PHONE_AMY, Name.MESSAGE_CONSTRAINTS);
+                + VALID_PHONE_AMY, Name.MESSAGE_CONSTRAINTS);
     }
 
     @Test
