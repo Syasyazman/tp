@@ -23,7 +23,7 @@ title: User Guide
   e.g. in `order --description <order description --client <client ID>`, `<client ID>` is a integer parameter such as `123`.
 
 * Words with `--` before them indicate keywords that must be used unless otherwise specified.<br>
-  e.g. `order --description Wooden Table --client 301`. `--description` and `--client` must be typed used.
+  e.g. `order --description Wooden Table --client 301`. `--description` and `--client` must be typed and used.
   
 * Words within `()` indicate optional keywords or tokens (most notably for `find` and `findorder`)
 
@@ -221,10 +221,10 @@ Deletes the order that is identified as `<order id>`.
 Note that `<order index>` is the **unique order ID** given to each order when added and is **not** based on the order 
 index in the order list.
 
-`<order id>` must exist as a valid unique order ID in the order list, **starting from `1`**.
+`<order id>` must exist as a valid unique order ID in the order list **between `1` and `99999` inclusive**.
 
-To identify the unique order ID of a client, view the 6 digit ID number assigned to the order to the **right** of 
-the client's name. For example, if the first line of the order information is `2. Order #000005`, then the 
+To identify the unique order ID of a client, view the 5 digit ID number assigned to the order to the **right** of 
+the client's name. For example, if the first line of the order information is `2. Order #00005`, then the 
 order's unique order ID is `5`.
 
 **Invalid Usage Example** :
@@ -233,7 +233,7 @@ Order index should be a valid unique order ID in the order list
 
 **Valid Usage Example** :
 ![Valid Order Command](images/ValidDeleteOrderCommand.png)
-`delete-order --order 2` : deletes the order with unique order ID #000002
+`delete-order --order 2` : deletes the order with unique order ID #00002
 
 **Other Valid Usages** :
 Entering order ID with as many leading zeroes (e.g `00000000001`) will still work as long as the order id without the
@@ -252,10 +252,10 @@ Deletes the client who is identified as `<client id>` and orders linked to `<cli
 Note that `<client id>` is the **unique client ID** given to each client when added and is **not** based on the client 
 index in the client list. 
 
-`<client id>` must exist as a valid unique client ID in the client list, **starting from `1`**.
+`<client id>` must exist as a valid unique client ID in the client list **between `1` and `99999` inclusive**.
 
-To identify the unique client ID of a client, view the 6 digit ID number assigned to the client in **brackets** beside 
-the client's name. For example, if the first line of the client information is `1. Kim Kardashian [ID#000003]`, then the 
+To identify the unique client ID of a client, view the 5 digit ID number assigned to the client in **brackets** beside 
+the client's name. For example, if the first line of the client information is `1. Kim Kardashian [ID#00003]`, then the 
 client's unique client ID is `3`.
 
 **Invalid Usage Example** :
@@ -264,7 +264,7 @@ Client ID should be a valid unique client ID in the client list
 
 **Valid Usage Example 1** : Deleting Client with Empty Order List
 ![Valid Client Command 1](images/ValidDeleteClientCommand.png)
-`delete-client --client 1` : deletes the client with unique client ID #000001
+`delete-client --client 1` : deletes the client with unique client ID #00001
 In this case, no orders are deleted as no orders are linked to the client
 
 **Valid Usage Example 2** : Delete Client with Non-Empty Order List
